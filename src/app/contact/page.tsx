@@ -16,23 +16,35 @@ export default function ContactPage() {
             We'd love to hear from you.
           </p>
         </div>
-        <form className="space-y-6">
+        <form
+          action="mailto:kumail.zaidi708@gmail.com"
+          method="get"
+          encType="text/plain"
+          className="space-y-6"
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
               <Label htmlFor="name">Name</Label>
-              <Input id="name" placeholder="Enter your name" />
+              <Input id="name" name="subject" placeholder="Enter your name" />
             </div>
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" placeholder="Enter your email" />
+              <Input id="email" type="email" name="email" placeholder="Enter your email" />
             </div>
           </div>
           <div className="space-y-2">
             <Label htmlFor="message">Message</Label>
-            <Textarea id="message" placeholder="Enter your message" className="min-h-[150px]" />
+            <Textarea
+              id="message"
+              name="body"
+              placeholder="Enter your message"
+              className="min-h-[150px]"
+            />
           </div>
           <div className="text-center">
-            <Button type="submit" size="lg">Send Message</Button>
+            <Button type="submit" size="lg">
+              Send Message
+            </Button>
           </div>
         </form>
       </main>
