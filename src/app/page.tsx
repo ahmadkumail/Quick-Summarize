@@ -17,7 +17,7 @@ export default function Home() {
         </div>
         <SummarizerForm />
       </div>
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/10 via-transparent to-primary/10" />
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/10 via-transparent to-secondary/20" />
     </main>
   );
 }
