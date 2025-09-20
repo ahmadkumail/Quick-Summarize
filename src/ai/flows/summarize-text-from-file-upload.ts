@@ -35,7 +35,7 @@ const prompt = ai.definePrompt({
   output: {schema: SummarizeTextFromFileUploadOutputSchema},
   prompt: `You are an expert summarizer, skilled at condensing large documents into key points.  Summarize the following text from the uploaded file.  Make the summary concise but informative.
 
-File Content: {{fileDataUri}}`,
+File Content: {{media url=fileDataUri}}`,
 });
 
 const summarizeTextFromFileUploadFlow = ai.defineFlow(
