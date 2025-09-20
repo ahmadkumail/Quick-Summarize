@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { Clipboard, ClipboardCheck, Loader2 } from 'lucide-react';
+import { Footer } from '@/components/footer';
 
 export default function Home() {
   const [summary, setSummary] = useState('');
@@ -99,6 +100,7 @@ export default function Home() {
           </Card>
         </div>
       </main>
+      <Footer />
     </div>
   );
 }
