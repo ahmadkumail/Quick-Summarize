@@ -49,7 +49,7 @@ export default function Home() {
             <CardHeader className="flex flex-row items-center justify-between p-4 bg-secondary/50 rounded-t-xl border-b">
               <div className='flex items-center gap-4'>
                 <CardTitle className="text-lg font-semibold text-secondary-foreground">
-                  Your Summary
+                  AI Summary
                 </CardTitle>
                 {summaryWordCount > 0 && !isLoading && (
                   <span className="text-sm font-medium text-muted-foreground bg-secondary/80 px-2 py-1 rounded-md">
