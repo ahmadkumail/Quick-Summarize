@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -11,8 +10,6 @@ import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
-  CardHeader,
-  CardTitle,
 } from '@/components/ui/card';
 import {
   Form,
@@ -32,7 +29,7 @@ import {
   TabsTrigger,
 } from '@/components/ui/tabs';
 import { useToast } from '@/hooks/use-toast';
-import { Clipboard, ClipboardCheck, FileText, Loader2, Pencil } from 'lucide-react';
+import { FileText, Loader2, Pencil } from 'lucide-react';
 
 const textSchema = z.object({
   text: z
@@ -62,10 +59,13 @@ const fileSchema = z.object({
     ),
 });
 
-export function SummarizerForm() {
-  const [summary, setSummary] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [isCopied, setIsCopied] = useState(false);
+type SummarizerFormProps = {
+  setSummary: (summary: string) => void;
+  setIsLoading: (isLoading: boolean) => void;
+  isLoading: boolean;
+};
+
+export function SummarizerForm({ setSummary, setIsLoading, isLoading }: SummarizerFormProps) {
   const { toast } = useToast();
 
   const textForm = useForm<z.infer<typeof textSchema>>({
@@ -126,152 +126,107 @@ export function SummarizerForm() {
     }
   };
 
-  const handleCopy = () => {
-    if (!summary) return;
-    navigator.clipboard.writeText(summary);
-    setIsCopied(true);
-    toast({
-      title: "Copied to clipboard!",
-    });
-    setTimeout(() => setIsCopied(false), 2000);
-  };
-
   return (
-    <div className="w-full max-w-3xl mx-auto space-y-8">
-      <Tabs defaultValue="text" className="w-full">
-        <TabsList className="grid w-full grid-cols-2 bg-secondary rounded-lg h-12 p-1">
-          <TabsTrigger value="text" className="rounded-md flex gap-2 items-center data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-lg">
-            <Pencil className="w-4 h-4" />
-            Paste Text
-          </TabsTrigger>
-          <TabsTrigger value="file" className="rounded-md flex gap-2 items-center data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-lg">
-            <FileText className="w-4 h-4" />
-            Upload File
-          </TabsTrigger>
-        </TabsList>
-        <TabsContent value="text" className="mt-6">
-          <Card className="rounded-xl shadow-lg border-border/50">
-            <CardContent className="p-6">
-              <Form {...textForm}>
-                <form
-                  onSubmit={textForm.handleSubmit(handleTextSubmit)}
-                  className="space-y-6"
-                >
-                  <FormField
-                    control={textForm.control}
-                    name="text"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="font-semibold text-foreground text-left text-base">Paste your text below</FormLabel>
-                        <FormControl>
-                          <Textarea
-                            placeholder="Enter a long piece of text to summarize..."
-                            className="min-h-[250px] resize-y rounded-lg bg-background text-base"
-                            {...field}
-                          />
-                        </FormControl>
-                        <div className="text-right text-sm text-muted-foreground">
-                          Max 15,000 characters
-                        </div>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <Button
-                    type="submit"
-                    disabled={isLoading}
-                    className="w-full rounded-lg h-12 text-lg font-bold"
-                  >
-                    {isLoading && (
-                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                    )}
-                    Summarize Text
-                  </Button>
-                </form>
-              </Form>
-            </CardContent>
-          </Card>
-        </TabsContent>
-        <TabsContent value="file" className="mt-6">
-          <Card className="rounded-xl shadow-lg border-border/50">
-            <CardContent className="p-6">
-              <Form {...fileForm}>
-                <form
-                  onSubmit={fileForm.handleSubmit(handleFileSubmit)}
-                  className="space-y-6"
-                >
-                  <FormField
-                    control={fileForm.control}
-                    name="file"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="font-semibold text-foreground text-left text-base">Upload your document</FormLabel>
-                        <FormControl>
-                          <Input
-                            type="file"
-                            className="rounded-lg h-12 text-base file:mr-4 file:py-3 file:px-5 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20"
-                            accept=".txt,.pdf,.docx"
-                            onChange={(e) =>
-                              field.onChange(e.target.files?.[0])
-                            }
-                          />
-                        </FormControl>
-                         <FormDescription className="text-left">
-                          Supported files: .txt, .pdf, .docx (Max 5MB)
-                        </FormDescription>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <Button
-                    type="submit"
-                    disabled={isLoading}
-                    className="w-full rounded-lg h-12 text-lg font-bold"
-                  >
-                    {isLoading && (
-                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                    )}
-                    Summarize File
-                  </Button>
-                </form>
-              </Form>
-            </CardContent>
-          </Card>
-        </TabsContent>
-      </Tabs>
-
-      {isLoading && (
-        <Card className="rounded-xl shadow-lg border-border/50">
+    <Tabs defaultValue="text" className="w-full">
+      <TabsList className="grid w-full grid-cols-2 bg-secondary rounded-lg h-12 p-1">
+        <TabsTrigger value="text" className="rounded-md flex gap-2 items-center data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-md">
+          <Pencil className="w-4 h-4" />
+          Paste Text
+        </TabsTrigger>
+        <TabsTrigger value="file" className="rounded-md flex gap-2 items-center data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-md">
+          <FileText className="w-4 h-4" />
+          Upload File
+        </TabsTrigger>
+      </TabsList>
+      <TabsContent value="text" className="mt-4">
+        <Card className="rounded-xl shadow-sm border-border/50">
           <CardContent className="p-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center min-h-[200px]">
-              <Loader2 className="h-10 w-10 animate-spin text-primary" />
-              <p className="font-semibold text-xl">Generating summary...</p>
-              <p className="text-muted-foreground">
-                Please wait, this may take a moment.
-              </p>
-            </div>
+            <Form {...textForm}>
+              <form
+                onSubmit={textForm.handleSubmit(handleTextSubmit)}
+                className="space-y-6"
+              >
+                <FormField
+                  control={textForm.control}
+                  name="text"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="font-semibold text-foreground text-left text-base">Paste your text below</FormLabel>
+                      <FormControl>
+                        <Textarea
+                          placeholder="Enter a long piece of text to summarize..."
+                          className="min-h-[250px] resize-y rounded-lg bg-background text-base"
+                          {...field}
+                        />
+                      </FormControl>
+                      <div className="text-right text-sm text-muted-foreground">
+                        Max 15,000 characters
+                      </div>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <Button
+                  type="submit"
+                  disabled={isLoading}
+                  className="w-full rounded-lg h-12 text-lg font-bold bg-primary text-primary-foreground hover:bg-primary/90"
+                >
+                  {isLoading && (
+                    <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                  )}
+                  Summarize Text
+                </Button>
+              </form>
+            </Form>
           </CardContent>
         </Card>
-      )}
-
-      {summary && !isLoading && (
-        <Card className="rounded-xl shadow-lg border-border/50">
-          <CardHeader className="flex flex-row items-center justify-between p-4 bg-secondary rounded-t-xl">
-            <CardTitle className="text-lg font-semibold text-secondary-foreground">Your Summary</CardTitle>
-            <Button variant="ghost" size="icon" onClick={handleCopy} className="text-primary hover:bg-primary/10 hover:text-primary rounded-full">
-              {isCopied ? (
-                <ClipboardCheck className="h-5 w-5" />
-              ) : (
-                <Clipboard className="h-5 w-5" />
-              )}
-              <span className="sr-only">Copy summary</span>
-            </Button>
-          </CardHeader>
-          <CardContent className="p-6 text-left">
-            <p className="text-base leading-relaxed text-foreground/90">{summary}</p>
+      </TabsContent>
+      <TabsContent value="file" className="mt-4">
+        <Card className="rounded-xl shadow-sm border-border/50">
+          <CardContent className="p-6">
+            <Form {...fileForm}>
+              <form
+                onSubmit={fileForm.handleSubmit(handleFileSubmit)}
+                className="space-y-6"
+              >
+                <FormField
+                  control={fileForm.control}
+                  name="file"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="font-semibold text-foreground text-left text-base">Upload your document</FormLabel>
+                      <FormControl>
+                        <Input
+                          type="file"
+                          className="rounded-lg h-12 text-base file:mr-4 file:py-3 file:px-5 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20"
+                          accept=".txt,.pdf,.docx"
+                          onChange={(e) =>
+                            field.onChange(e.target.files?.[0])
+                          }
+                        />
+                      </FormControl>
+                       <FormDescription className="text-left">
+                        Supported files: .txt, .pdf, .docx (Max 5MB)
+                      </FormDescription>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <Button
+                  type="submit"
+                  disabled={isLoading}
+                  className="w-full rounded-lg h-12 text-lg font-bold bg-primary text-primary-foreground hover:bg-primary/90"
+                >
+                  {isLoading && (
+                    <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                  )}
+                  Summarize File
+                </Button>
+              </form>
+            </Form>
           </CardContent>
         </Card>
-      )}
-    </div>
+      </TabsContent>
+    </Tabs>
   );
 }
