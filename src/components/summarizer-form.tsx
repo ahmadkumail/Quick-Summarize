@@ -138,12 +138,12 @@ export function SummarizerForm() {
   return (
     <div className="w-full max-w-2xl mx-auto space-y-8">
       <Tabs defaultValue="text" className="w-full">
-        <TabsList className="grid w-full grid-cols-2">
+        <TabsList className="grid w-full grid-cols-2 bg-background/60 backdrop-blur-sm">
           <TabsTrigger value="text">Paste Text</TabsTrigger>
           <TabsTrigger value="file">Upload File</TabsTrigger>
         </TabsList>
         <TabsContent value="text">
-          <Card>
+          <Card className="bg-background/60 backdrop-blur-sm">
             <CardContent className="p-6">
               <Form {...textForm}>
                 <form
@@ -183,7 +183,7 @@ export function SummarizerForm() {
           </Card>
         </TabsContent>
         <TabsContent value="file">
-          <Card>
+          <Card className="bg-background/60 backdrop-blur-sm">
             <CardContent className="p-6">
               <Form {...fileForm}>
                 <form
@@ -227,7 +227,7 @@ export function SummarizerForm() {
       </Tabs>
 
       {isLoading && (
-        <Card>
+        <Card className="bg-background/60 backdrop-blur-sm">
           <CardContent className="p-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <Loader2 className="h-8 w-8 animate-spin text-primary" />
@@ -241,7 +241,7 @@ export function SummarizerForm() {
       )}
 
       {summary && !isLoading && (
-        <Card>
+        <Card className="bg-background/60 backdrop-blur-sm">
           <CardHeader className="flex flex-row items-center justify-between">
             <CardTitle>Your Summary</CardTitle>
             <Button variant="ghost" size="icon" onClick={handleCopy}>
@@ -254,7 +254,7 @@ export function SummarizerForm() {
             </Button>
           </CardHeader>
           <CardContent>
-            <p className="font-body text-base leading-relaxed">{summary}</p>
+            <p className="text-base leading-relaxed">{summary}</p>
           </CardContent>
         </Card>
       )}
