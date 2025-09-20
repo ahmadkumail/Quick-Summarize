@@ -87,7 +87,7 @@ export default function Home() {
               )}
               {!isLoading && !summary && (
                 <div className="flex flex-col items-center justify-center text-center h-full text-muted-foreground">
-                  <p className="text-lg">Your generated summary will appear here.</p>
+                  <p className="text-lg">Your generated AI summary will appear here.</p>
                 </div>
               )}
               {summary && !isLoading && (
