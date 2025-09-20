@@ -3,14 +3,10 @@ export function Logo() {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      fill="currentColor"
       className="h-10 w-10 text-primary animate-pulse-slow"
     >
-      <path d="m12 3-1.9 5.8-5.9.8 4.2 4.1-.9 5.8L12 16.4l5.3 2.8-.9-5.8 4.2-4.1-5.8-.8z"></path>
+      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
     </svg>
   );
 }
