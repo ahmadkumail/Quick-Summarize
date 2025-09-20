@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -29,7 +30,7 @@ import {
   TabsTrigger,
 } from '@/components/ui/tabs';
 import { useToast } from '@/hooks/use-toast';
-import { FileText, Loader2, Pencil } from 'lucide-react';
+import { FileText, Loader2, Pencil, Bot } from 'lucide-react';
 
 const textSchema = z.object({
   text: z
@@ -48,13 +49,13 @@ const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
 const fileSchema = z.object({
   file: z
     .instanceof(File)
-    .refine((file) => file?.size > 0, 'A file is required.')
+    .refine((file) => !!file && file?.size > 0, 'A file is required.')
     .refine(
-      (file) => file?.size <= MAX_FILE_SIZE,
+      (file) => !!file && file.size <= MAX_FILE_SIZE,
       `Max file size is 5MB.`
     )
     .refine(
-      (file) => ACCEPTED_FILE_TYPES.includes(file?.type),
+      (file) => !!file && ACCEPTED_FILE_TYPES.includes(file.type),
       'Only .txt, .pdf, and .docx files are accepted.'
     ),
 });
@@ -67,6 +68,7 @@ type SummarizerFormProps = {
 
 export function SummarizerForm({ setSummary, setIsLoading, isLoading }: SummarizerFormProps) {
   const { toast } = useToast();
+  const [textWordCount, setTextWordCount] = useState(0);
 
   const textForm = useForm<z.infer<typeof textSchema>>({
     resolver: zodResolver(textSchema),
@@ -129,17 +131,17 @@ export function SummarizerForm({ setSummary, setIsLoading, isLoading }: Summariz
   return (
     <Tabs defaultValue="text" className="w-full">
       <TabsList className="grid w-full grid-cols-2 bg-secondary rounded-lg h-12 p-1">
-        <TabsTrigger value="text" className="rounded-md flex gap-2 items-center data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-md">
+        <TabsTrigger value="text" className="rounded-md flex gap-2 items-center data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-lg">
           <Pencil className="w-4 h-4" />
           Paste Text
         </TabsTrigger>
-        <TabsTrigger value="file" className="rounded-md flex gap-2 items-center data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-md">
+        <TabsTrigger value="file" className="rounded-md flex gap-2 items-center data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-lg">
           <FileText className="w-4 h-4" />
           Upload File
         </TabsTrigger>
       </TabsList>
       <TabsContent value="text" className="mt-4">
-        <Card className="rounded-xl shadow-sm border-border/50">
+        <Card className="rounded-xl shadow-lg border-border/50">
           <CardContent className="p-6">
             <Form {...textForm}>
               <form
@@ -157,10 +159,16 @@ export function SummarizerForm({ setSummary, setIsLoading, isLoading }: Summariz
                           placeholder="Enter a long piece of text to summarize..."
                           className="min-h-[250px] resize-y rounded-lg bg-background text-base"
                           {...field}
+                          onChange={(e) => {
+                            field.onChange(e);
+                            const words = e.target.value.trim().split(/\s+/).filter(Boolean);
+                            setTextWordCount(words.length > 1 || words[0] !== '' ? words.length : 0);
+                          }}
                         />
                       </FormControl>
-                      <div className="text-right text-sm text-muted-foreground">
-                        Max 15,000 characters
+                      <div className="flex justify-between text-sm text-muted-foreground">
+                        <span>{textWordCount} {textWordCount === 1 ? 'word' : 'words'}</span>
+                        <span>{field.value.length} / 15,000 characters</span>
                       </div>
                       <FormMessage />
                     </FormItem>
@@ -169,10 +177,12 @@ export function SummarizerForm({ setSummary, setIsLoading, isLoading }: Summariz
                 <Button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full rounded-lg h-12 text-lg font-bold bg-primary text-primary-foreground hover:bg-primary/90"
+                  className="w-full rounded-lg h-12 text-lg font-bold bg-primary text-primary-foreground hover:bg-primary/90 flex items-center gap-2"
                 >
-                  {isLoading && (
+                  {isLoading ? (
                     <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                  ) : (
+                    <Bot className="h-5 w-5" />
                   )}
                   Summarize Text
                 </Button>
@@ -182,7 +192,7 @@ export function SummarizerForm({ setSummary, setIsLoading, isLoading }: Summariz
         </Card>
       </TabsContent>
       <TabsContent value="file" className="mt-4">
-        <Card className="rounded-xl shadow-sm border-border/50">
+        <Card className="rounded-xl shadow-lg border-border/50">
           <CardContent className="p-6">
             <Form {...fileForm}>
               <form
@@ -215,10 +225,12 @@ export function SummarizerForm({ setSummary, setIsLoading, isLoading }: Summariz
                 <Button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full rounded-lg h-12 text-lg font-bold bg-primary text-primary-foreground hover:bg-primary/90"
+                  className="w-full rounded-lg h-12 text-lg font-bold bg-primary text-primary-foreground hover:bg-primary/90 flex items-center gap-2"
                 >
-                  {isLoading && (
+                  {isLoading ? (
                     <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                  ) : (
+                    <Bot className="h-5 w-5" />
                   )}
                   Summarize File
                 </Button>

@@ -24,9 +24,11 @@ export default function Home() {
     setTimeout(() => setIsCopied(false), 2000);
   };
 
+  const summaryWordCount = summary ? summary.trim().split(/\s+/).filter(Boolean).length : 0;
+
   return (
-    <div className="flex flex-col min-h-screen bg-secondary/50">
-      <header className="flex items-center h-16 px-6 border-b bg-background shrink-0">
+    <div className="flex flex-col min-h-screen bg-secondary/30">
+      <header className="flex items-center h-16 px-6 border-b bg-background/95 backdrop-blur-sm shrink-0 sticky top-0 z-10">
         <div className="flex items-center gap-3">
           <Logo />
           <h1 className="text-xl font-semibold tracking-tight text-foreground">
@@ -34,8 +36,8 @@ export default function Home() {
           </h1>
         </div>
       </header>
-      <main className="flex-1 w-full max-w-7xl mx-auto p-4 md:p-6 grid gap-6 grid-cols-1 md:grid-cols-2">
-        <div className="flex flex-col gap-6">
+      <main className="flex-1 w-full max-w-7xl mx-auto p-4 md:p-6 grid gap-8 grid-cols-1 md:grid-cols-2 md:gap-12 items-start">
+        <div className="flex flex-col gap-6 sticky top-[80px]">
           <SummarizerForm
             setSummary={setSummary}
             setIsLoading={setIsLoading}
@@ -43,11 +45,18 @@ export default function Home() {
           />
         </div>
         <div className="flex flex-col gap-6">
-          <Card className="rounded-xl shadow-sm border-border/50 flex-1 flex flex-col">
+          <Card className="rounded-xl shadow-lg border-border/50 flex-1 flex flex-col">
             <CardHeader className="flex flex-row items-center justify-between p-4 bg-secondary/50 rounded-t-xl border-b">
-              <CardTitle className="text-lg font-semibold text-secondary-foreground">
-                Your Summary
-              </CardTitle>
+              <div className='flex items-center gap-4'>
+                <CardTitle className="text-lg font-semibold text-secondary-foreground">
+                  Your Summary
+                </CardTitle>
+                {summaryWordCount > 0 && !isLoading && (
+                  <span className="text-sm font-medium text-muted-foreground bg-secondary/80 px-2 py-1 rounded-md">
+                    {summaryWordCount} {summaryWordCount === 1 ? 'word' : 'words'}
+                  </span>
+                )}
+              </div>
               {summary && !isLoading && (
                 <Button
                   variant="ghost"
@@ -64,7 +73,7 @@ export default function Home() {
                 </Button>
               )}
             </CardHeader>
-            <CardContent className="p-6 text-left flex-1">
+            <CardContent className="p-6 text-left flex-1 min-h-[400px]">
               {isLoading && (
                 <div className="flex flex-col items-center justify-center space-y-4 text-center h-full">
                   <Loader2 className="h-10 w-10 animate-spin text-primary" />
