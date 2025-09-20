@@ -17,6 +17,7 @@ import {
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -138,12 +139,12 @@ export function SummarizerForm() {
   return (
     <div className="w-full max-w-2xl mx-auto space-y-8">
       <Tabs defaultValue="text" className="w-full">
-        <TabsList className="grid w-full grid-cols-2 bg-background/60 backdrop-blur-sm">
+        <TabsList className="grid w-full grid-cols-2">
           <TabsTrigger value="text">Paste Text</TabsTrigger>
           <TabsTrigger value="file">Upload File</TabsTrigger>
         </TabsList>
         <TabsContent value="text">
-          <Card className="bg-background/60 backdrop-blur-sm">
+          <Card>
             <CardContent className="p-6">
               <Form {...textForm}>
                 <form
@@ -163,6 +164,9 @@ export function SummarizerForm() {
                             {...field}
                           />
                         </FormControl>
+                        <FormDescription>
+                          You can enter up to 15,000 characters.
+                        </FormDescription>
                         <FormMessage />
                       </FormItem>
                     )}
@@ -183,7 +187,7 @@ export function SummarizerForm() {
           </Card>
         </TabsContent>
         <TabsContent value="file">
-          <Card className="bg-background/60 backdrop-blur-sm">
+          <Card>
             <CardContent className="p-6">
               <Form {...fileForm}>
                 <form
@@ -205,6 +209,9 @@ export function SummarizerForm() {
                             }
                           />
                         </FormControl>
+                         <FormDescription>
+                          Supported files: .txt, .pdf, .docx (Max 5MB)
+                        </FormDescription>
                         <FormMessage />
                       </FormItem>
                     )}
@@ -227,7 +234,7 @@ export function SummarizerForm() {
       </Tabs>
 
       {isLoading && (
-        <Card className="bg-background/60 backdrop-blur-sm">
+        <Card>
           <CardContent className="p-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <Loader2 className="h-8 w-8 animate-spin text-primary" />
@@ -241,7 +248,7 @@ export function SummarizerForm() {
       )}
 
       {summary && !isLoading && (
-        <Card className="bg-background/60 backdrop-blur-sm">
+        <Card>
           <CardHeader className="flex flex-row items-center justify-between">
             <CardTitle>Your Summary</CardTitle>
             <Button variant="ghost" size="icon" onClick={handleCopy}>
