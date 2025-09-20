@@ -5,16 +5,16 @@ export function Logo() {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="2"
+      strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="h-12 w-12 text-primary"
+      className="h-12 w-12 text-primary animate-pulse-slow"
     >
-      <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
-      <path d="M18.37 3.63a2.12 2.12 0 1 1 3 3L12 16l-4 1 1-4Z" />
-      <path d="m15 6 3 3" />
-      <path d="M9 8h4" />
-      <path d="M9 12h2" />
+      <path d="M4.5 6.5l4-4L12 6l3.5-3.5 4 4L16 10l-4 4-4-4-3.5-3.5Z" />
+      <path d="m10 12 4 4" />
+      <path d="M17.5 10.5l4-4" />
+      <path d="m2.5 14.5 4 4" />
+      <path d="M20 12v4.5a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 16.5V12" />
     </svg>
   );
 }
