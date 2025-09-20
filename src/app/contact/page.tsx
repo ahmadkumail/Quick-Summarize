@@ -16,9 +16,10 @@ export default function ContactPage() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const subject = `Message from ${name}`;
+    const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
     const mailtoLink = `mailto:kumail.zaidi708@gmail.com?subject=${encodeURIComponent(
       subject
-    )}&body=${encodeURIComponent(message)}`;
+    )}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
   };
 
