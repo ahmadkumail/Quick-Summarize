@@ -30,7 +30,7 @@ import {
   TabsTrigger,
 } from '@/components/ui/tabs';
 import { useToast } from '@/hooks/use-toast';
-import { FileText, Loader2, Pencil, Bot } from 'lucide-react';
+import { FileText, Loader2, Pencil, Sparkles } from 'lucide-react';
 
 const textSchema = z.object({
   text: z
@@ -182,7 +182,7 @@ export function SummarizerForm({ setSummary, setIsLoading, isLoading }: Summariz
                   {isLoading ? (
                     <Loader2 className="mr-2 h-5 w-5 animate-spin" />
                   ) : (
-                    <Bot className="h-5 w-5" />
+                    <Sparkles className="h-5 w-5" />
                   )}
                   Summarize Text
                 </Button>
@@ -230,7 +230,7 @@ export function SummarizerForm({ setSummary, setIsLoading, isLoading }: Summariz
                   {isLoading ? (
                     <Loader2 className="mr-2 h-5 w-5 animate-spin" />
                   ) : (
-                    <Bot className="h-5 w-5" />
+                    <Sparkles className="h-5 w-5" />
                   )}
                   Summarize File
                 </Button>
