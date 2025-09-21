@@ -6,7 +6,7 @@ export function Logo() {
       fill="currentColor"
       className="h-10 w-10 text-primary"
     >
-      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+      <path d="M4 14.25h5.5l-2.5-7.5L19 11.75H12.5l2.5 7.5L4 14.25z" />
     </svg>
   );
 }
