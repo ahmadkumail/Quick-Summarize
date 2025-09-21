@@ -151,21 +151,21 @@ export function SummarizerForm({
         <RadioGroup
           onValueChange={field.onChange}
           defaultValue={field.value}
-          className="flex space-x-6"
+          className="flex flex-col space-y-2"
         >
-          <FormItem className="flex items-center space-x-2">
+          <FormItem className="flex items-center space-x-3">
             <FormControl>
               <RadioGroupItem value="short" id="short" />
             </FormControl>
             <Label htmlFor="short" className="font-normal text-base">Short</Label>
           </FormItem>
-          <FormItem className="flex items-center space-x-2">
+          <FormItem className="flex items-center space-x-3">
             <FormControl>
               <RadioGroupItem value="medium" id="medium" />
             </FormControl>
             <Label htmlFor="medium" className="font-normal text-base">Medium</Label>
           </FormItem>
-          <FormItem className="flex items-center space-x-2">
+          <FormItem className="flex items-center space-x-3">
             <FormControl>
               <RadioGroupItem value="detailed" id="detailed" />
             </FormControl>
