@@ -151,48 +151,25 @@ export function SummarizerForm({
         <RadioGroup
           onValueChange={field.onChange}
           defaultValue={field.value}
-          className="grid grid-cols-3 gap-4"
+          className="flex space-x-6"
         >
-          <FormItem>
+          <FormItem className="flex items-center space-x-2">
             <FormControl>
-              <RadioGroupItem value="short" id="short" className="sr-only" />
+              <RadioGroupItem value="short" id="short" />
             </FormControl>
-            <Label
-              htmlFor="short"
-              className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer"
-            >
-              Short
-            </Label>
+            <Label htmlFor="short" className="font-normal text-base">Short</Label>
           </FormItem>
-          <FormItem>
+          <FormItem className="flex items-center space-x-2">
             <FormControl>
-              <RadioGroupItem
-                value="medium"
-                id="medium"
-                className="sr-only"
-              />
+              <RadioGroupItem value="medium" id="medium" />
             </FormControl>
-            <Label
-              htmlFor="medium"
-              className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer"
-            >
-              Medium
-            </Label>
+            <Label htmlFor="medium" className="font-normal text-base">Medium</Label>
           </FormItem>
-          <FormItem>
+          <FormItem className="flex items-center space-x-2">
             <FormControl>
-              <RadioGroupItem
-                value="detailed"
-                id="detailed"
-                className="sr-only"
-              />
+              <RadioGroupItem value="detailed" id="detailed" />
             </FormControl>
-            <Label
-              htmlFor="detailed"
-              className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer"
-            >
-              Detailed
-            </Label>
+            <Label htmlFor="detailed" className="font-normal text-base">Detailed</Label>
           </FormItem>
         </RadioGroup>
       </FormControl>
