@@ -20,6 +20,7 @@ import {z} from 'genkit';
  */
 const SummarizeTextFromInputInputSchema = z.object({
   text: z.string().describe('The text to summarize.'),
+  summaryLength: z.string().describe('The desired length of the summary (short, medium, or detailed).'),
 });
 export type SummarizeTextFromInputInput = z.infer<typeof SummarizeTextFromInputInputSchema>;
 
@@ -47,7 +48,15 @@ const summarizeTextPrompt = ai.definePrompt({
   name: 'summarizeTextPrompt',
   input: {schema: SummarizeTextFromInputInputSchema},
   output: {schema: SummarizeTextFromInputOutputSchema},
-  prompt: `Summarize the following text in a concise manner:\n\n{{text}}`,
+  prompt: `Summarize the following text in a concise manner.
+
+Make the summary {{summaryLength}}.
+- If the user asks for a "short" summary, provide a very brief, one-paragraph summary.
+- If the user asks for a "medium" summary, provide a moderately detailed summary with a few key bullet points.
+- If the user asks for a "detailed" summary, provide a comprehensive summary with multiple paragraphs and detailed bullet points.
+
+Text to summarize:
+{{text}}`,
 });
 
 /**

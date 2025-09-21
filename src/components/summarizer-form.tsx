@@ -8,10 +8,7 @@ import { summarizeTextFromInput } from '@/ai/flows/summarize-text-from-input';
 import { summarizeTextFromFileUpload } from '@/ai/flows/summarize-text-from-file-upload';
 
 import { Button } from '@/components/ui/button';
-import {
-  Card,
-  CardContent,
-} from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import {
   Form,
   FormControl,
@@ -31,12 +28,17 @@ import {
 } from '@/components/ui/tabs';
 import { useToast } from '@/hooks/use-toast';
 import { FileText, Loader2, Pencil, Zap } from 'lucide-react';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Label } from './ui/label';
+
+const summaryLengthSchema = z.enum(['short', 'medium', 'detailed']);
 
 const textSchema = z.object({
   text: z
     .string()
     .min(50, { message: 'Please enter at least 50 characters to summarize.' })
     .max(15000, { message: 'Text cannot exceed 15,000 characters.' }),
+  summaryLength: summaryLengthSchema,
 });
 
 const ACCEPTED_FILE_TYPES = [
@@ -58,6 +60,7 @@ const fileSchema = z.object({
       (file) => !!file && ACCEPTED_FILE_TYPES.includes(file.type),
       'Only .txt, .pdf, and .docx files are accepted.'
     ),
+  summaryLength: summaryLengthSchema,
 });
 
 type SummarizerFormProps = {
@@ -66,16 +69,23 @@ type SummarizerFormProps = {
   isLoading: boolean;
 };
 
-export function SummarizerForm({ setSummary, setIsLoading, isLoading }: SummarizerFormProps) {
+export function SummarizerForm({
+  setSummary,
+  setIsLoading,
+  isLoading,
+}: SummarizerFormProps) {
   const { toast } = useToast();
   const [textWordCount, setTextWordCount] = useState(0);
 
   const textForm = useForm<z.infer<typeof textSchema>>({
     resolver: zodResolver(textSchema),
-    defaultValues: { text: '' },
+    defaultValues: { text: '', summaryLength: 'medium' },
   });
 
-  const fileForm = useForm<z.infer<typeof fileSchema>>();
+  const fileForm = useForm<z.infer<typeof fileSchema>>({
+    resolver: zodResolver(fileSchema),
+    defaultValues: { summaryLength: 'medium' },
+  });
 
   const handleTextSubmit = async (values: z.infer<typeof textSchema>) => {
     setIsLoading(true);
@@ -113,7 +123,11 @@ export function SummarizerForm({ setSummary, setIsLoading, isLoading }: Summariz
 
     try {
       const fileDataUri = await fileToDataUri(values.file);
-      const result = await summarizeTextFromFileUpload({ fileDataUri });
+      const { summaryLength } = values;
+      const result = await summarizeTextFromFileUpload({
+        fileDataUri,
+        summaryLength,
+      });
       setSummary(result.summary);
     } catch (error) {
       console.error(error);
@@ -127,15 +141,79 @@ export function SummarizerForm({ setSummary, setIsLoading, isLoading }: Summariz
       setIsLoading(false);
     }
   };
+  
+  const SummaryLengthOptions = ({field}: any) => (
+    <FormItem className="space-y-3">
+      <FormLabel className="font-semibold text-foreground text-left text-base">
+        Summary Length
+      </FormLabel>
+      <FormControl>
+        <RadioGroup
+          onValueChange={field.onChange}
+          defaultValue={field.value}
+          className="grid grid-cols-3 gap-4"
+        >
+          <FormItem>
+            <FormControl>
+              <RadioGroupItem value="short" id="short" className="sr-only" />
+            </FormControl>
+            <Label
+              htmlFor="short"
+              className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer"
+            >
+              Short
+            </Label>
+          </FormItem>
+          <FormItem>
+            <FormControl>
+              <RadioGroupItem
+                value="medium"
+                id="medium"
+                className="sr-only"
+              />
+            </FormControl>
+            <Label
+              htmlFor="medium"
+              className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer"
+            >
+              Medium
+            </Label>
+          </FormItem>
+          <FormItem>
+            <FormControl>
+              <RadioGroupItem
+                value="detailed"
+                id="detailed"
+                className="sr-only"
+              />
+            </FormControl>
+            <Label
+              htmlFor="detailed"
+              className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer"
+            >
+              Detailed
+            </Label>
+          </FormItem>
+        </RadioGroup>
+      </FormControl>
+      <FormMessage />
+    </FormItem>
+  );
 
   return (
     <Tabs defaultValue="text" className="w-full">
       <TabsList className="grid w-full grid-cols-2 bg-secondary rounded-lg h-12 p-1">
-        <TabsTrigger value="text" className="rounded-md flex gap-2 items-center data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-lg">
+        <TabsTrigger
+          value="text"
+          className="rounded-md flex gap-2 items-center data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-lg"
+        >
           <Pencil className="w-4 h-4" />
           Paste Text
         </TabsTrigger>
-        <TabsTrigger value="file" className="rounded-md flex gap-2 items-center data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-lg">
+        <TabsTrigger
+          value="file"
+          className="rounded-md flex gap-2 items-center data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-lg"
+        >
           <FileText className="w-4 h-4" />
           Upload File
         </TabsTrigger>
@@ -153,7 +231,9 @@ export function SummarizerForm({ setSummary, setIsLoading, isLoading }: Summariz
                   name="text"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="font-semibold text-foreground text-left text-base">Paste your text below</FormLabel>
+                      <FormLabel className="font-semibold text-foreground text-left text-base">
+                        Paste your text below
+                      </FormLabel>
                       <FormControl>
                         <Textarea
                           placeholder="Enter a long piece of text to summarize..."
@@ -161,18 +241,33 @@ export function SummarizerForm({ setSummary, setIsLoading, isLoading }: Summariz
                           {...field}
                           onChange={(e) => {
                             field.onChange(e);
-                            const words = e.target.value.trim().split(/\s+/).filter(Boolean);
-                            setTextWordCount(words.length > 1 || words[0] !== '' ? words.length : 0);
+                            const words = e.target.value
+                              .trim()
+                              .split(/\s+/)
+                              .filter(Boolean);
+                            setTextWordCount(
+                              words.length > 1 || words[0] !== ''
+                                ? words.length
+                                : 0
+                            );
                           }}
                         />
                       </FormControl>
                       <div className="flex justify-between text-sm text-muted-foreground">
-                        <span>{textWordCount} {textWordCount === 1 ? 'word' : 'words'}</span>
+                        <span>
+                          {textWordCount}{' '}
+                          {textWordCount === 1 ? 'word' : 'words'}
+                        </span>
                         <span>{field.value.length} / 15,000 characters</span>
                       </div>
                       <FormMessage />
                     </FormItem>
                   )}
+                />
+                <FormField
+                  control={textForm.control}
+                  name="summaryLength"
+                  render={({ field }) => <SummaryLengthOptions field={field}/>}
                 />
                 <Button
                   type="submit"
@@ -204,7 +299,9 @@ export function SummarizerForm({ setSummary, setIsLoading, isLoading }: Summariz
                   name="file"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="font-semibold text-foreground text-left text-base">Upload your document</FormLabel>
+                      <FormLabel className="font-semibold text-foreground text-left text-base">
+                        Upload your document
+                      </FormLabel>
                       <FormControl>
                         <Input
                           type="file"
@@ -215,12 +312,17 @@ export function SummarizerForm({ setSummary, setIsLoading, isLoading }: Summariz
                           }
                         />
                       </FormControl>
-                       <FormDescription className="text-left">
+                      <FormDescription className="text-left">
                         Supported files: .txt, .pdf, .docx (Max 5MB)
                       </FormDescription>
                       <FormMessage />
                     </FormItem>
                   )}
+                />
+                 <FormField
+                  control={fileForm.control}
+                  name="summaryLength"
+                  render={({ field }) => <SummaryLengthOptions field={field}/>}
                 />
                 <Button
                   type="submit"
