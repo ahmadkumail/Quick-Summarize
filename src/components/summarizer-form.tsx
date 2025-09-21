@@ -153,19 +153,19 @@ export function SummarizerForm({
           defaultValue={field.value}
           className="flex flex-row space-x-6"
         >
-          <FormItem className="flex items-center space-x-3">
+          <FormItem className="flex items-center space-x-2">
             <FormControl>
               <RadioGroupItem value="short" id="short" />
             </FormControl>
             <Label htmlFor="short" className="font-normal text-base">Short</Label>
           </FormItem>
-          <FormItem className="flex items-center space-x-3">
+          <FormItem className="flex items-center space-x-2">
             <FormControl>
               <RadioGroupItem value="medium" id="medium" />
             </FormControl>
             <Label htmlFor="medium" className="font-normal text-base">Medium</Label>
           </FormItem>
-          <FormItem className="flex items-center space-x-3">
+          <FormItem className="flex items-center space-x-2">
             <FormControl>
               <RadioGroupItem value="detailed" id="detailed" />
             </FormControl>
