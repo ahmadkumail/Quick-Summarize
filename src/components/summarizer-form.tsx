@@ -151,7 +151,7 @@ export function SummarizerForm({
         <RadioGroup
           onValueChange={field.onChange}
           defaultValue={field.value}
-          className="flex flex-col space-y-2"
+          className="flex flex-row space-x-6"
         >
           <FormItem className="flex items-center space-x-3">
             <FormControl>
