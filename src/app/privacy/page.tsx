@@ -4,9 +4,15 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'Read the Privacy Policy for Quick Summarize.',
+  description: 'Understand how Quick Summarize collects, uses, and protects your personal data when you use our services.',
   alternates: {
     canonical: '/privacy',
+  },
+  openGraph: {
+    title: 'Privacy Policy | Quick Summarize',
+    description: 'Understand how Quick Summarize collects, uses, and protects your personal data.',
+    url: '/privacy',
+    type: 'website',
   },
 };
 
@@ -21,14 +27,14 @@ export default function PrivacyPage() {
             Your privacy is important to us.
           </p>
         </div>
-        <div className="space-y-6 text-muted-foreground">
+        <div className="space-y-6 text-muted-foreground prose max-w-none">
           <p>
             This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.
           </p>
           <p>
             We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy.
           </p>
-          <h2 className="text-2xl font-semibold text-foreground pt-4">Collecting and Using Your Personal Data</h2>
+          <h2>Collecting and Using Your Personal Data</h2>
           <p>
             While using Our Service, We may ask You to provide Us with certain personally identifiable information that can be used to contact or identify You. Personally identifiable information may include, but is not limited to: Email address, First name and last name, Usage Data.
           </p>

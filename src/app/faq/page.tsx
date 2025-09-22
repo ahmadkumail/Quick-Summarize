@@ -10,15 +10,56 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Frequently Asked Questions',
-  description: 'Have questions about Quick Summarize? Find the answers here.',
+  description: 'Find answers to common questions about Quick Summarize, including supported file types, summarization limits, and how our AI works.',
   alternates: {
     canonical: '/faq',
+  },
+  openGraph: {
+    title: 'Frequently Asked Questions | Quick Summarize',
+    description: 'Find answers to common questions about Quick Summarize.',
+    url: '/faq',
+    type: 'website',
   },
 };
 
 export default function FaqPage() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': [
+      {
+        '@type': 'Question',
+        'name': 'What is Quick Summarize?',
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': 'Quick Summarize is an AI-powered tool that helps you summarize long texts and documents into concise and easy-to-read summaries.',
+        },
+      },
+      {
+        '@type': 'Question',
+        'name': 'What file types are supported?',
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': 'We support .txt, .pdf, and .docx file formats. The maximum file size is 5MB.',
+        },
+      },
+      {
+        '@type': 'Question',
+        'name': 'Is there a character limit for text summarization?',
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': 'Yes, you can summarize up to 15,000 characters at a time.',
+        },
+      },
+    ],
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-secondary/30">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Header />
       <main className="flex-1 w-full max-w-4xl mx-auto p-4 md:p-6">
         <div className="my-12 text-center">

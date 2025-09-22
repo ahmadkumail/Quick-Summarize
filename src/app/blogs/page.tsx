@@ -12,6 +12,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blogs',
   },
+  openGraph: {
+    title: 'Blogs | Quick Summarize',
+    description: 'Read our latest articles and updates on AI summarization, productivity, and more.',
+    url: '/blogs',
+    type: 'website',
+  },
 };
 
 export default function BlogsPage() {
@@ -22,9 +28,9 @@ export default function BlogsPage() {
       <Header />
       <main className="flex-1 w-full max-w-4xl mx-auto p-4 md:p-6">
         <div className="my-12 text-center">
-          <h1 className="text-4xl font-bold tracking-tight">Blogs</h1>
+          <h1 className="text-4xl font-bold tracking-tight">Our Blog</h1>
           <p className="mt-4 text-lg text-muted-foreground">
-            Welcome to our blog. Here you'll find articles and updates.
+            Welcome to our blog. Here you'll find articles on AI, productivity, and learning.
           </p>
         </div>
 

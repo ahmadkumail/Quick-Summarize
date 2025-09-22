@@ -14,6 +14,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  openGraph: {
+    title: 'Quick Summarize - AI-Powered Text and Document Summarizer',
+    description: 'Summarize long texts, articles, and documents instantly with our advanced AI-powered summarization tool.',
+    url: 'https://quick-summarize.app',
+    siteName: 'Quick Summarize',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Quick Summarize - AI-Powered Text and Document Summarizer',
+    description: 'Summarize long texts, articles, and documents instantly with our advanced AI-powered summarization tool.',
+  },
 };
 
 export default function RootLayout({
