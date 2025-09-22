@@ -1,5 +1,11 @@
 import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Terms and Conditions',
+  description: 'Read the Terms and Conditions for using Quick Summarize.',
+};
 
 export default function TermsPage() {
   return (

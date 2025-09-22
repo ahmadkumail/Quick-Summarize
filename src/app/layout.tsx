@@ -5,8 +5,11 @@ import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 
 export const metadata: Metadata = {
-  title: 'Quick Summarize',
-  description: 'Summarize text and documents with AI.',
+  title: {
+    default: 'Quick Summarize - AI-Powered Text and Document Summarizer',
+    template: '%s | Quick Summarize',
+  },
+  description: 'Summarize long texts, articles, and documents instantly with our advanced AI-powered summarization tool. Get concise summaries in seconds.',
 };
 
 export default function RootLayout({

@@ -1,5 +1,11 @@
 import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy',
+  description: 'Read the Privacy Policy for Quick Summarize.',
+};
 
 export default function PrivacyPage() {
   return (

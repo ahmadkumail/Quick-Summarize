@@ -4,6 +4,12 @@ import { getAllPosts } from '@/lib/blog-posts';
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowRight } from 'lucide-react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Blogs',
+  description: "Read our latest articles and updates on AI summarization, productivity, and more.",
+};
 
 export default function BlogsPage() {
   const posts = getAllPosts();

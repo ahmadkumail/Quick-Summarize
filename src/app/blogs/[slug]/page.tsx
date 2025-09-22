@@ -1,15 +1,31 @@
 import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
-import { getPostBySlug } from '@/lib/blog-posts';
+import { getPostBySlug, getAllPosts } from '@/lib/blog-posts';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ChevronLeft } from 'lucide-react';
+import type { Metadata } from 'next';
 
 type BlogPostPageProps = {
   params: {
     slug: string;
   };
 };
+
+export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+  const post = getPostBySlug(params.slug);
+
+  if (!post) {
+    return {
+      title: 'Post Not Found',
+    };
+  }
+
+  return {
+    title: post.title,
+    description: post.excerpt,
+  };
+}
 
 export default function BlogPostPage({ params }: BlogPostPageProps) {
   const post = getPostBySlug(params.slug);
@@ -39,7 +55,6 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 }
 
 export async function generateStaticParams() {
-  const { getAllPosts } = await import('@/lib/blog-posts');
   const posts = getAllPosts();
   return posts.map((post) => ({
     slug: post.slug,

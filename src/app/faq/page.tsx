@@ -6,6 +6,12 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Frequently Asked Questions',
+  description: 'Have questions about Quick Summarize? Find the answers here.',
+};
 
 export default function FaqPage() {
   return (
