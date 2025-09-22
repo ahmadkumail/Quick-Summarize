@@ -5,6 +5,9 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Terms and Conditions',
   description: 'Read the Terms and Conditions for using Quick Summarize.',
+  alternates: {
+    canonical: '/terms',
+  },
 };
 
 export default function TermsPage() {

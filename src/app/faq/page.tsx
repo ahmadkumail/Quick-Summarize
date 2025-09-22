@@ -11,6 +11,9 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Frequently Asked Questions',
   description: 'Have questions about Quick Summarize? Find the answers here.',
+  alternates: {
+    canonical: '/faq',
+  },
 };
 
 export default function FaqPage() {
