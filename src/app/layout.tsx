@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import { Toaster } from '@/components/ui/toaster';
 import './globals.css';
 import { GeistSans } from 'geist/font/sans';
@@ -39,12 +38,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning>
       <head>
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5530405178327113"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
       </head>
       <body>
         {/* Google Analytics */}
