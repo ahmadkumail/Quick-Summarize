@@ -3,6 +3,7 @@ import { Toaster } from '@/components/ui/toaster';
 import './globals.css';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://quick-summarize.app'),
@@ -37,6 +38,19 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning>
       <body>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-6J9SQV8X1M"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-6J9SQV8X1M');
+          `}
+        </Script>
+
         {children}
         <Toaster />
       </body>
