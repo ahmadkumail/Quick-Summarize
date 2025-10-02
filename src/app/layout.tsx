@@ -38,6 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning>
       <body>
+        {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-6J9SQV8X1M"
           strategy="afterInteractive"
@@ -50,6 +51,13 @@ export default function RootLayout({
             gtag('config', 'G-6J9SQV8X1M');
           `}
         </Script>
+
+        {/* Adsterra Script */}
+        <Script
+          src="//pl27767968.revenuecpmgate.com/84cc549c4e6a2c6893ef4066fb09e588/invoke.js"
+          strategy="afterInteractive"
+        />
+        <div id="container-84cc549c4e6a2c6893ef4066fb09e588"></div>
 
         {children}
         <Toaster />
