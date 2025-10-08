@@ -153,19 +153,19 @@ export function SummarizerForm({
           defaultValue={field.value}
           className="flex flex-col sm:flex-row sm:space-x-6 space-y-2 sm:space-y-0"
         >
-          <FormItem className="flex items-center space-x-2">
+          <FormItem className="flex items-center space-x-3">
             <FormControl>
               <RadioGroupItem value="short" id="short" />
             </FormControl>
             <Label htmlFor="short" className="font-normal text-base">Short</Label>
           </FormItem>
-          <FormItem className="flex items-center space-x-2">
+          <FormItem className="flex items-center space-x-3">
             <FormControl>
               <RadioGroupItem value="medium" id="medium" />
             </FormControl>
             <Label htmlFor="medium" className="font-normal text-base">Medium</Label>
           </FormItem>
-          <FormItem className="flex items-center space-x-2">
+          <FormItem className="flex items-center space-x-3">
             <FormControl>
               <RadioGroupItem value="detailed" id="detailed" />
             </FormControl>
@@ -265,7 +265,7 @@ export function SummarizerForm({
       </TabsContent>
       <TabsContent value="file" className="mt-4">
         <Card className="rounded-xl shadow-lg border-border/50">
-          <CardContent className="p-6">
+          <CardContent className="p-6 flex flex-col justify-between min-h-[500px]">
             <Form {...fileForm}>
               <form
                 onSubmit={fileForm.handleSubmit(handleFileSubmit)}
