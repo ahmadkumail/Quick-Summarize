@@ -1,52 +1,84 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- Home -->
-  <url>
-    <loc>https://aisummarize.online/</loc>
-    <lastmod>2025-09-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  <!-- Blogs (fixed: /blog → /blogs) -->
-  <url>
-    <loc>https://aisummarize.online/blogs</loc>
-    <lastmod>2025-09-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- FAQ (fixed: /faqs → /faq) -->
-  <url>
-    <loc>https://aisummarize.online/faq</loc>
-    <lastmod>2025-09-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Contact -->
-  <url>
-    <loc>https://aisummarize.online/contact</loc>
-    <lastmod>2025-09-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Privacy Policy -->
-  <url>
-    <loc>https://aisummarize.online/privacy</loc>
-    <lastmod>2025-09-26</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <!-- Terms and Conditions -->
-  <url>
-    <loc>https://aisummarize.online/terms</loc>
-    <lastmod>2025-09-26</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!--  created with Free Online Sitemap Generator www.xml-sitemaps.com  -->
+<url>
+<loc>https://aisummarize.online/</loc>
+<lastmod>2025-10-09T21:55:34+00:00</lastmod>
+<priority>1.00</priority>
+</url>
+<url>
+<loc>https://aisummarize.online/blogs</loc>
+<lastmod>2025-10-09T21:55:34+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+<url>
+<loc>https://aisummarize.online/faq</loc>
+<lastmod>2025-10-09T21:55:34+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+<url>
+<loc>https://aisummarize.online/contact</loc>
+<lastmod>2025-10-09T21:55:34+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+<url>
+<loc>https://aisummarize.online/privacy</loc>
+<lastmod>2025-10-09T21:55:34+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+<url>
+<loc>https://aisummarize.online/terms</loc>
+<lastmod>2025-10-09T21:55:34+00:00</lastmod>
+<priority>0.80</priority>
+</url>
+<url>
+<loc>https://aisummarize.online/blogs/power-of-ai-summarization</loc>
+<lastmod>2025-10-09T21:55:34+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://aisummarize.online/blogs/5-ways-text-summarizers-improve-research</loc>
+<lastmod>2025-10-09T21:55:34+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://aisummarize.online/blogs/choosing-the-best-ai-summarizer</loc>
+<lastmod>2025-10-09T21:55:34+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://aisummarize.online/blogs/magic-of-document-summarization</loc>
+<lastmod>2025-10-09T21:55:34+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://aisummarize.online/blogs/how-ai-is-changing-the-way-we-read-and-learn</loc>
+<lastmod>2025-10-09T21:55:34+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://aisummarize.online/blogs/ai-summarization-for-students</loc>
+<lastmod>2025-10-09T21:55:34+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://aisummarize.online/blogs/summarizing-business-documents-with-ai</loc>
+<lastmod>2025-10-09T21:55:34+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://aisummarize.online/blogs/extractive-vs-abstractive-summarization</loc>
+<lastmod>2025-10-09T21:55:34+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://aisummarize.online/blogs/ai-tools-for-productivity-beyond-summarization</loc>
+<lastmod>2025-10-09T21:55:34+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://aisummarize.online/blogs/the-ethics-of-ai-summarization</loc>
+<lastmod>2025-10-09T21:55:34+00:00</lastmod>
+<priority>0.64</priority>
+</url>
 </urlset>
