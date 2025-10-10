@@ -1,83 +1,37 @@
-This XML file does not appear to have any style information associated with it. The document tree is shown below.
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<url>
-<loc>https://aisummarize.online/</loc>
-<lastmod>2025-10-09T21:55:34+00:00</lastmod>
-<priority>1.00</priority>
-</url>
-<url>
-<loc>https://aisummarize.online/blogs</loc>
-<lastmod>2025-10-09T21:55:34+00:00</lastmod>
-<priority>0.80</priority>
-</url>
-<url>
-<loc>https://aisummarize.online/faq</loc>
-<lastmod>2025-10-09T21:55:34+00:00</lastmod>
-<priority>0.80</priority>
-</url>
-<url>
-<loc>https://aisummarize.online/contact</loc>
-<lastmod>2025-10-09T21:55:34+00:00</lastmod>
-<priority>0.80</priority>
-</url>
-<url>
-<loc>https://aisummarize.online/privacy</loc>
-<lastmod>2025-10-09T21:55:34+00:00</lastmod>
-<priority>0.80</priority>
-</url>
-<url>
-<loc>https://aisummarize.online/terms</loc>
-<lastmod>2025-10-09T21:55:34+00:00</lastmod>
-<priority>0.80</priority>
-</url>
-<url>
-<loc>https://aisummarize.online/blogs/power-of-ai-summarization</loc>
-<lastmod>2025-10-09T21:55:34+00:00</lastmod>
-<priority>0.64</priority>
-</url>
-<url>
-<loc>https://aisummarize.online/blogs/5-ways-text-summarizers-improve-research</loc>
-<lastmod>2025-10-09T21:55:34+00:00</lastmod>
-<priority>0.64</priority>
-</url>
-<url>
-<loc>https://aisummarize.online/blogs/choosing-the-best-ai-summarizer</loc>
-<lastmod>2025-10-09T21:55:34+00:00</lastmod>
-<priority>0.64</priority>
-</url>
-<url>
-<loc>https://aisummarize.online/blogs/magic-of-document-summarization</loc>
-<lastmod>2025-10-09T21:55:34+00:00</lastmod>
-<priority>0.64</priority>
-</url>
-<url>
-<loc>https://aisummarize.online/blogs/how-ai-is-changing-the-way-we-read-and-learn</loc>
-<lastmod>2025-10-09T21:55:34+00:00</lastmod>
-<priority>0.64</priority>
-</url>
-<url>
-<loc>https://aisummarize.online/blogs/ai-summarization-for-students</loc>
-<lastmod>2025-10-09T21:55:34+00:00</lastmod>
-<priority>0.64</priority>
-</url>
-<url>
-<loc>https://aisummarize.online/blogs/summarizing-business-documents-with-ai</loc>
-<lastmod>2025-10-09T21:55:34+00:00</lastmod>
-<priority>0.64</priority>
-</url>
-<url>
-<loc>https://aisummarize.online/blogs/extractive-vs-abstractive-summarization</loc>
-<lastmod>2025-10-09T21:55:34+00:00</lastmod>
-<priority>0.64</priority>
-</url>
-<url>
-<loc>https://aisummarize.online/blogs/ai-tools-for-productivity-beyond-summarization</loc>
-<lastmod>2025-10-09T21:55:34+00:00</lastmod>
-<priority>0.64</priority>
-</url>
-<url>
-<loc>https://aisummarize.online/blogs/the-ethics-of-ai-summarization</loc>
-<lastmod>2025-10-09T21:55:34+00:00</lastmod>
-<priority>0.64</priority>
-</url>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <url>
+    <loc>https://shrinkwrap.website/</loc>
+    <lastmod>2025-10-09T22:57:57+00:00</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://shrinkwrap.website/blog</loc>
+    <lastmod>2025-10-09T22:57:57+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://shrinkwrap.website/contact</loc>
+    <lastmod>2025-10-09T22:57:57+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://shrinkwrap.website/about</loc>
+    <lastmod>2025-10-09T22:57:57+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://shrinkwrap.website/privacy</loc>
+    <lastmod>2025-10-09T22:57:57+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://shrinkwrap.website/terms</loc>
+    <lastmod>2025-10-09T22:57:57+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
 </urlset>
