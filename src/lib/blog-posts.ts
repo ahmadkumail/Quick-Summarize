@@ -245,7 +245,7 @@ const posts: Post[] = [
 
       <h3 class="font-bold text-2xl my-6">Ethical Use: A Tool, Not a Replacement</h3>
       <p>It's crucial to approach AI summarizers as a powerful study aid, not a replacement for critical thinking and engagement with the source material. The goal is to enhance your learning, not to avoid the work of learning itself. Always use summaries as a starting point or a review tool. The deepest understanding still comes from wrestling with the full text, questioning its arguments, and forming your own conclusions.</p>
-      <p class="mt-4">Plagiarism is also a key consideration. Never pass off an AI-generated summary as your own work. Use it to inform your understanding, but always write your assignments in your own words.</p>
+      <p class="mt-4">Plagiarism is also a key consideration. Never pass off an AI-generated summary as your own work. Use it to inform your understanding, but always write your assignments in your own words. Always cite the original source, not the summary.</p>
 
       <h3 class="font-bold text-2xl my-6">Conclusion: The Future of Studying</h3>
       <p>The academic landscape is changing, and the tools available to students are becoming more powerful than ever. AI summarizers like <strong>Quick Summarize</strong> offer a clear path to studying smarter, not just harder. By helping you manage your reading load, improve your comprehension, and streamline your research process, these tools can reduce stress, free up time, and empower you to achieve your full academic potential. Embrace the technology, use it wisely, and take control of your learning journey.</p>
