@@ -33,8 +33,8 @@ export default function Home() {
     '@type': 'Organization',
     'name': 'Quick Summarize',
     'url': 'https://quick-summarize.app',
-    'logo': 'https://quick-summarize.app/logo.png', // Assuming you have a logo at this path
-    'sameAs': [], // Add social media links here
+    'logo': 'https://quick-summarize.app/logo.png',
+    'sameAs': [],
   };
 
   const websiteJsonLd = {
@@ -199,22 +199,17 @@ export default function Home() {
         </section>
 
         <section className="py-16 sm:py-24 bg-background">
-          <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold tracking-tight">Why Choose Quick Summarize?</h2>
-              <p className="mt-4 text-lg text-muted-foreground">
-                In a world of information overload, Quick Summarize is your essential tool for clarity and focus. We are dedicated to providing a fast, accurate, and user-friendly summarization experience. Our advanced AI is designed to understand the core message of your content, delivering high-quality summaries you can trust.
-              </p>
-              <p className="mt-4 text-lg text-muted-foreground">
-                Whether you're a student, a professional, or a lifelong learner, our tool helps you save time, increase productivity, and absorb information more effectively.
-              </p>
-              <Button asChild size="lg" className="mt-8">
-                <a href="#summarizer-form">Try It Now</a>
-              </Button>
-            </div>
-            <div className="flex items-center justify-center">
-                <img src="https://picsum.photos/seed/rocket/500/500" alt="Illustration of a person working efficiently" data-ai-hint="productivity efficiency" className="rounded-xl shadow-2xl"/>
-            </div>
+          <div className="max-w-3xl mx-auto px-6 text-center">
+            <h2 className="text-3xl font-bold tracking-tight">Why Choose Quick Summarize?</h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              In a world of information overload, Quick Summarize is your essential tool for clarity and focus. We are dedicated to providing a fast, accurate, and user-friendly summarization experience. Our advanced AI is designed to understand the core message of your content, delivering high-quality summaries you can trust.
+            </p>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Whether you're a student, a professional, or a lifelong learner, our tool helps you save time, increase productivity, and absorb information more effectively.
+            </p>
+            <Button asChild size="lg" className="mt-8">
+              <a href="#summarizer-form">Try It Now</a>
+            </Button>
           </div>
         </section>
 
