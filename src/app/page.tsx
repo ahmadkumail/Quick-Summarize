@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { Clipboard, ClipboardCheck, Loader2, Zap, FileText, Scaling, Clock } from 'lucide-react';
 import { Footer } from '@/components/footer';
+import Script from 'next/script';
 
 export default function Home() {
   const [summary, setSummary] = useState('');
@@ -27,8 +28,38 @@ export default function Home() {
 
   const summaryWordCount = summary ? summary.trim().split(/\s+/).filter(Boolean).length : 0;
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    'name': 'Quick Summarize',
+    'url': 'https://quick-summarize.app',
+    'logo': 'https://quick-summarize.app/logo.png', // Assuming you have a logo at this path
+    'sameAs': [], // Add social media links here
+  };
+
+  const websiteJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    'url': 'https://quick-summarize.app',
+    'potentialAction': {
+      '@type': 'SearchAction',
+      'target': 'https://quick-summarize.app?q={search_term_string}',
+      'query-input': 'required name=search_term_string',
+    },
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-secondary/30">
+       <Script
+        id="organization-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <Script
+        id="website-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+      />
       <Header />
       <main className="flex-1 w-full">
         <div className="w-full max-w-7xl mx-auto p-4 md:p-6 grid gap-8 grid-cols-1 lg:grid-cols-2 lg:gap-12 items-start">

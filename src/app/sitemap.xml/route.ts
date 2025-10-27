@@ -1,19 +1,35 @@
-import { NextResponse } from "next/server";
+import { getAllPosts } from '@/lib/blog-posts';
 
 export async function GET() {
-  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url><loc>https://aisummarize.online/</loc></url>
-    <url><loc>https://aisummarize.online/blogs</loc></url>
-    <url><loc>https://aisummarize.online/faq</loc></url>
-    <url><loc>https://aisummarize.online/contact</loc></url>
-    <url><loc>https://aisummarize.online/privacy</loc></url>
-    <url><loc>https://aisummarize.online/terms</loc></url>
-  </urlset>`;
+  const baseUrl = 'https://quick-summarize.app';
+  const staticPages = [
+    '/',
+    '/blogs',
+    '/faq',
+    '/contact',
+    '/privacy',
+    '/terms',
+  ];
 
-  return new NextResponse(sitemap, {
+  const posts = getAllPosts();
+  const postUrls = posts.map(post => `${baseUrl}/blogs/${post.slug}`);
+
+  const allUrls = [...staticPages.map(page => `${baseUrl}${page}`), ...postUrls];
+
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  ${allUrls
+    .map(url => `
+    <url>
+      <loc>${url}</loc>
+    </url>
+  `)
+    .join('')}
+</urlset>`;
+
+  return new Response(sitemap, {
     headers: {
-      "Content-Type": "application/xml",
+      'Content-Type': 'application/xml',
     },
   });
 }
