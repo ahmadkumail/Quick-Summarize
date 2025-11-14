@@ -66,7 +66,7 @@ export default function Home() {
         <section className="py-12 text-center">
           <div className="max-w-3xl mx-auto px-6">
             <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground">
-              Get to the Point, Instantly
+              Skip the noise
             </h1>
             <p className="mt-6 text-lg sm:text-xl text-muted-foreground">
               Tired of information overload? Paste any text or upload a document and let our advanced AI deliver a clear, concise summary in seconds. Save time and understand more.
