@@ -62,6 +62,18 @@ export default function Home() {
       />
       <Header />
       <main className="flex-1 w-full">
+
+        <section className="py-12 text-center">
+          <div className="max-w-3xl mx-auto px-6">
+            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground">
+              Get to the Point, Instantly
+            </h1>
+            <p className="mt-6 text-lg sm:text-xl text-muted-foreground">
+              Tired of information overload? Paste any text or upload a document and let our advanced AI deliver a clear, concise summary in seconds. Save time and understand more.
+            </p>
+          </div>
+        </section>
+
         <div className="w-full max-w-7xl mx-auto p-4 md:p-6 grid gap-8 grid-cols-1 lg:grid-cols-2 lg:gap-12 items-start">
           <div id="summarizer-form" className="flex flex-col gap-6 md:sticky top-[80px]">
             <SummarizerForm
