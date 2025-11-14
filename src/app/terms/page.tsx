@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
-  description: 'Read the Terms and Conditions for using the Quick Summarize application and its related AI services.',
+  description: 'Read the Terms and Conditions for using the Quick Summarize application. Understand your rights and responsibilities when using our AI summarizer.',
   alternates: {
     canonical: '/terms',
   },

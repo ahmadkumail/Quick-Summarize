@@ -4,8 +4,8 @@ import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
 
 export const metadata: Metadata = {
-  title: 'Contact Us',
-  description: 'Get in touch with the Quick Summarize team for support, questions, or feedback.',
+  title: 'Contact Us - Quick Summarize',
+  description: 'Get in touch with the Quick Summarize team. We welcome your questions, feedback, and support inquiries. Fill out our contact form to reach us.',
   alternates: {
     canonical: '/contact',
   },

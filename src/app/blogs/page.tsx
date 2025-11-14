@@ -7,14 +7,14 @@ import { ArrowRight } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Blogs',
-  description: "Read our latest articles and updates on AI summarization, productivity, and more.",
+  title: 'Blog - AI Summarization, Productivity, and Tech Insights',
+  description: "Explore our blog for expert articles on AI summarization, productivity hacks, learning strategies, and the latest in AI technology.",
   alternates: {
     canonical: '/blogs',
   },
   openGraph: {
-    title: 'Blogs | Quick Summarize',
-    description: 'Read our latest articles and updates on AI summarization, productivity, and more.',
+    title: 'Blog | Quick Summarize',
+    description: "Explore our blog for expert articles on AI summarization, productivity hacks, learning strategies, and the latest in AI technology.",
     url: '/blogs',
     type: 'website',
   },
@@ -30,7 +30,7 @@ export default function BlogsPage() {
         <div className="my-12 text-center">
           <h1 className="text-4xl font-bold tracking-tight">Our Blog</h1>
           <p className="mt-4 text-lg text-muted-foreground">
-            Welcome to our blog. Here you'll find articles on AI, productivity, and learning.
+            Insights on AI, productivity, and smarter learning.
           </p>
         </div>
 

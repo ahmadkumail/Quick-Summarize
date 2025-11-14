@@ -11,13 +11,13 @@ export const metadata: Metadata = {
     default: 'Quick Summarize - AI-Powered Text and Document Summarizer',
     template: '%s | Quick Summarize',
   },
-  description: 'Summarize long texts, articles, and documents instantly with our advanced AI-powered summarization tool. Get concise summaries in seconds.',
+  description: 'Save time with our free AI summarizer. Instantly condense long articles, reports, and documents into clear, concise summaries. Paste text or upload files to get started.',
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: 'Quick Summarize - AI-Powered Text and Document Summarizer',
-    description: 'Summarize long texts, articles, and documents instantly with our advanced AI-powered summarization tool.',
+    description: 'Save time with our free AI summarizer. Instantly condense long articles, reports, and documents into clear, concise summaries.',
     url: 'https://quick-summarize.app',
     siteName: 'Quick Summarize',
     locale: 'en_US',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Quick Summarize - AI-Powered Text and Document Summarizer',
-    description: 'Summarize long texts, articles, and documents instantly with our advanced AI-powered summarization tool.',
+    description: 'Save time with our free AI summarizer. Instantly condense long articles, reports, and documents into clear, concise summaries.',
   },
 };
 

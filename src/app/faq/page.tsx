@@ -9,14 +9,14 @@ import {
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Frequently Asked Questions',
-  description: 'Find answers to common questions about Quick Summarize, including supported file types, summarization limits, and how our AI works.',
+  title: 'Frequently Asked Questions (FAQ)',
+  description: 'Find answers to common questions about our AI summarizer: supported file types, summarization limits, data privacy, and how our technology works.',
   alternates: {
     canonical: '/faq',
   },
   openGraph: {
     title: 'Frequently Asked Questions | Quick Summarize',
-    description: 'Find answers to common questions about Quick Summarize.',
+    description: 'Find answers to common questions about our AI summarizer.',
     url: '/faq',
     type: 'website',
   },
@@ -81,7 +81,7 @@ export default function FaqPage() {
         <div className="my-12 text-center">
           <h1 className="text-4xl font-bold tracking-tight">Frequently Asked Questions</h1>
           <p className="mt-4 text-lg text-muted-foreground">
-            Have questions? We've got answers. Here are some of the most common things people ask.
+            Have questions? We've got answers.
           </p>
         </div>
         <Accordion type="single" collapsible className="w-full">

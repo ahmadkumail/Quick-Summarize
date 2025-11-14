@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'Understand how Quick Summarize collects, uses, and protects your personal data when you use our services.',
+  description: 'Review the Quick Summarize privacy policy to understand how we collect, use, and protect your data. Your privacy is our priority.',
   alternates: {
     canonical: '/privacy',
   },
