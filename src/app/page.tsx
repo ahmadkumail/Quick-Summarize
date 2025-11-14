@@ -107,7 +107,7 @@ export default function Home() {
                       Generating summary...
                     </p>
                     <p className="text-muted-foreground">
-                      Please wait, this may take a moment.
+                      Our AI is working its magic. This may take a moment.
                     </p>
                   </div>
                 )}
@@ -128,27 +128,27 @@ export default function Home() {
         
         <section className="py-16 sm:py-24 bg-background">
           <div className="max-w-7xl mx-auto px-6 text-center">
-            <h2 className="text-3xl font-bold tracking-tight">How It Works</h2>
+            <h2 className="text-3xl font-bold tracking-tight">It’s as Easy as 1-2-3</h2>
             <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-              Summarizing your text or documents is as easy as 1-2-3.
+              Getting to the point has never been simpler. Here’s how our tool transforms your content.
             </p>
             <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="flex flex-col items-center p-6 bg-secondary/40 rounded-xl shadow-sm">
                 <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 text-primary mb-4">
                    <FileText className="h-8 w-8" />
                 </div>
-                <h3 className="text-xl font-semibold">1. Paste or Upload</h3>
+                <h3 className="text-xl font-semibold">1. Add Your Content</h3>
                 <p className="mt-2 text-muted-foreground">
-                  Easily paste your text into the text area or upload a supported document (.txt, .pdf, .docx).
+                  Simply paste your text directly, or upload a document. We support .txt, .pdf, and .docx files.
                 </p>
               </div>
               <div className="flex flex-col items-center p-6 bg-secondary/40 rounded-xl shadow-sm">
                 <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 text-primary mb-4">
                   <Zap className="h-8 w-8" />
                 </div>
-                <h3 className="text-xl font-semibold">2. Summarize</h3>
+                <h3 className="text-xl font-semibold">2. Click Summarize</h3>
                 <p className="mt-2 text-muted-foreground">
-                  Click the "Summarize" button and let our advanced AI process and condense your content in seconds.
+                   With one click, our powerful AI gets to work, analyzing your content to find the key points.
                 </p>
               </div>
               <div className="flex flex-col items-center p-6 bg-secondary/40 rounded-xl shadow-sm">
@@ -157,7 +157,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-semibold">3. Get Your Summary</h3>
                 <p className="mt-2 text-muted-foreground">
-                  Receive a concise and accurate summary. Copy it to your clipboard or use it as needed.
+                  Your clear, concise summary is ready. Copy it and get back to what you do best.
                 </p>
               </div>
             </div>
@@ -167,31 +167,31 @@ export default function Home() {
         <section className="py-16 sm:py-24">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center">
-              <h2 className="text-3xl font-bold tracking-tight">Key Features</h2>
+              <h2 className="text-3xl font-bold tracking-tight">A Smarter Way to Work and Study</h2>
               <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-                Powerful features designed to make your life easier and more productive.
+                We built Quick Summarize with features designed to make your life genuinely easier.
               </p>
             </div>
             <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="p-6 bg-background rounded-xl shadow-lg border border-border/50">
                 <FileText className="h-8 w-8 text-primary mb-4" />
-                <h3 className="text-xl font-semibold">Text & Document Summarization</h3>
+                <h3 className="text-xl font-semibold">Summarize Anything</h3>
                 <p className="mt-2 text-muted-foreground">
-                  Whether it's raw text or a document file, our AI can handle it. We support .txt, .pdf, and .docx files.
+                  From dense articles to lengthy reports, our AI handles it all. We support raw text and popular document formats.
                 </p>
               </div>
               <div className="p-6 bg-background rounded-xl shadow-lg border border-border/50">
                 <Scaling className="h-8 w-8 text-primary mb-4" />
-                <h3 className="text-xl font-semibold">Adjustable Summary Length</h3>
+                <h3 className="text-xl font-semibold">Control the Detail</h3>
                 <p className="mt-2 text-muted-foreground">
-                  Choose from short, medium, or detailed summaries to get the level of detail that fits your needs perfectly.
+                  You’re in charge. Choose between short, medium, or detailed summaries to get the perfect level of insight for your needs.
                 </p>
               </div>
               <div className="p-6 bg-background rounded-xl shadow-lg border border-border/50">
                 <Clock className="h-8 w-8 text-primary mb-4" />
-                <h3 className="text-xl font-semibold">Fast and Efficient</h3>
+                <h3 className="text-xl font-semibold">Reclaim Your Time</h3>
                 <p className="mt-2 text-muted-foreground">
-                  Save valuable time. Our powerful AI delivers high-quality summaries in just a few seconds.
+                  Why spend hours reading when you can get the key points in seconds? Boost your productivity and focus on what truly matters.
                 </p>
               </div>
             </div>
@@ -200,15 +200,15 @@ export default function Home() {
 
         <section className="py-16 sm:py-24 bg-background">
           <div className="max-w-3xl mx-auto px-6 text-center">
-            <h2 className="text-3xl font-bold tracking-tight">Why Choose Quick Summarize?</h2>
+            <h2 className="text-3xl font-bold tracking-tight">Built for Humans, by Humans</h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              In a world of information overload, Quick Summarize is your essential tool for clarity and focus. We are dedicated to providing a fast, accurate, and user-friendly summarization experience. Our advanced AI is designed to understand the core message of your content, delivering high-quality summaries you can trust.
+             We get it. The amount of information we face every day is overwhelming. Quick Summarize was created to be a simple, powerful tool to cut through the noise. We believe that understanding information should be fast, easy, and accessible to everyone.
             </p>
             <p className="mt-4 text-lg text-muted-foreground">
-              Whether you're a student, a professional, or a lifelong learner, our tool helps you save time, increase productivity, and absorb information more effectively.
+              Whether you're a student trying to keep up, a professional on a deadline, or just curious, we're here to help you learn more in less time.
             </p>
             <Button asChild size="lg" className="mt-8">
-              <a href="#summarizer-form">Try It Now</a>
+              <a href="#summarizer-form">Give it a try</a>
             </Button>
           </div>
         </section>

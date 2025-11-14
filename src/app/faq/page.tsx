@@ -29,42 +29,42 @@ export default function FaqPage() {
     'mainEntity': [
       {
         '@type': 'Question',
-        'name': 'What is Quick Summarize?',
+        'name': 'What is Quick Summarize and who is it for?',
         'acceptedAnswer': {
           '@type': 'Answer',
-          'text': 'Quick Summarize is an AI-powered tool that helps you summarize long texts and documents into concise and easy-to-read summaries. It uses advanced natural language processing to understand the core message of your content and deliver accurate key points.',
+          'text': 'Quick Summarize is an AI-powered tool designed to help you instantly condense long texts and documents into short, easy-to-read summaries. It’s for students, professionals, researchers, and anyone who feels overwhelmed by information and wants to save time reading.',
         },
       },
       {
         '@type': 'Question',
-        'name': 'What file types are supported for document summarization?',
+        'name': 'What kind of documents can I upload?',
         'acceptedAnswer': {
           '@type': 'Answer',
-          'text': 'We support the most common document formats, including .txt (plain text), .pdf (Portable Document Format), and .docx (Microsoft Word). The maximum file size for any uploaded document is 5MB.',
+          'text': 'You can upload the most common document types, including .txt (plain text), .pdf (Portable Document Format), and .docx (Microsoft Word). The maximum file size is 5MB. This makes it perfect for summarizing articles, reports, and essays.',
         },
       },
       {
         '@type': 'Question',
-        'name': 'Is there a character limit for pasting text?',
+        'name': 'Is there a limit to how much text I can paste?',
         'acceptedAnswer': {
           '@type-': 'Answer',
-          'text': 'Yes, for optimal performance and to ensure high-quality summaries, you can paste and summarize up to 15,000 characters at a time in the text input field.',
+          'text': 'Yes. To ensure our servers can keep up and provide high-quality summaries for everyone, you can paste and summarize up to 15,000 characters at a time. This is long enough for most articles and book chapters.',
         },
       },
        {
         '@type': 'Question',
-        'name': 'How does the AI work? Is it extractive or abstractive?',
+        'name': 'How does the AI work? Does it just copy sentences?',
         'acceptedAnswer': {
           '@type': 'Answer',
-          'text': 'Our tool primarily uses an advanced abstractive summarization model. This means that instead of just copying and pasting key sentences (extractive), our AI generates new, unique sentences that capture the essence of the original text, much like a human would. This results in more fluent, coherent, and readable summaries.',
+          'text': 'Our tool uses an advanced "abstractive" summarization model. This means that instead of just finding and copying important sentences, our AI actually understands the core concepts and then generates new, unique sentences to explain them. The result is a much more natural and coherent summary, almost like a human wrote it.',
         },
       },
       {
         '@type': 'Question',
-        'name': 'Is my data secure? What about privacy?',
+        'name': 'Is my data private and secure?',
         'acceptedAnswer': {
           '@type': 'Answer',
-          'text': 'We take your privacy and data security very seriously. The content you summarize is processed securely and is not stored on our servers or used for training our AI models. For more details, please refer to our full Privacy Policy.',
+          'text': 'Absolutely. We take your privacy very seriously. The content you summarize is processed securely, and we do not store it on our servers or use it to train our AI models. Your text and documents are your own.',
         },
       },
     ],
@@ -81,38 +81,20 @@ export default function FaqPage() {
         <div className="my-12 text-center">
           <h1 className="text-4xl font-bold tracking-tight">Frequently Asked Questions</h1>
           <p className="mt-4 text-lg text-muted-foreground">
-            Have questions? We've got answers.
+            Have questions? We've got answers. Here are some of the most common things people ask.
           </p>
         </div>
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1">
-            <AccordionTrigger>What is Quick Summarize?</AccordionTrigger>
+            <AccordionTrigger>What is Quick Summarize and who is it for?</AccordionTrigger>
             <AccordionContent>
-             Quick Summarize is an AI-powered tool that helps you summarize long texts and documents into concise and easy-to-read summaries. It uses advanced natural language processing to understand the core message of your content and deliver accurate key points.
+             Quick Summarize is an AI-powered tool designed to help you instantly condense long texts and documents into short, easy-to-read summaries. It’s for students, professionals, researchers, and anyone who feels overwhelmed by information and wants to save time reading.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
-            <AccordionTrigger>What file types are supported for document summarization?</AccordionTrigger>
+            <AccordionTrigger>What kind of documents can I upload?</AccordionTrigger>
             <AccordionContent>
-             We support the most common document formats, including .txt (plain text), .pdf (Portable Document Format), and .docx (Microsoft Word). The maximum file size for any uploaded document is 5MB.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-3">
-            <AccordionTrigger>Is there a character limit for pasting text?</AccordionTrigger>
-            <AccordionContent>
-              Yes, for optimal performance and to ensure high-quality summaries, you can paste and summarize up to 15,000 characters at a time in the text input field.
-            </AccordionContent>
-          </AccordionItem>
-           <AccordionItem value="item-4">
-            <AccordionTrigger>How does the AI work? Is it extractive or abstractive?</AccordionTrigger>
-            <AccordionContent>
-              Our tool primarily uses an advanced abstractive summarization model. This means that instead of just copying and pasting key sentences (extractive), our AI generates new, unique sentences that capture the essence of the original text, much like a human would. This results in more fluent, coherent, and readable summaries.
-            </AccordionContent>
-          </AccordionItem>
-           <AccordionItem value="item-5">
-            <AccordionTrigger>Is my data secure? What about privacy?</AccordionTrigger>
-            <AccordionContent>
-              We take your privacy and data security very seriously. The content you summarize is processed securely and is not stored on our servers or used for training our AI models. For more details, please refer to our full Privacy Policy.
+             You can upload the most common document types, including .txt (plain text), .pdf (Portable Document Format), and .docx (Microsoft Word). The maximum file size is 5MB. This makes it perfect for summarizing articles, reports, and essays.
             </AccordionContent>
           </AccordionItem>
         </Accordion>
